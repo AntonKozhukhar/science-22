@@ -1,10 +1,7 @@
 <template>
 
   <div class='wrapper'>
-    <startPage :title='title'
-               :subtitle1='subtitle1'
-               :subtitle2='subtitle2'
-    />
+    <startPage :title='title' :subtitle='subtitle'/>
 
     <contentComponent/>
 
@@ -24,11 +21,9 @@ export default {
   name: 'App',
   components: {ContentComponent, FooterComponent, StartPage},
   data() {
-
     return {
       title: 'НАУКА 22',
-      subtitle1: 'МИ ВІРИМО В НАУКУ',
-      subtitle2: 'БУДУЄМО МАЙБУТНЄ',
+      subtitle: 'МИ ВІРИМО В НАУКУ. БУДУЄМО МАЙБУТНЄ.',
     }
   },
 }

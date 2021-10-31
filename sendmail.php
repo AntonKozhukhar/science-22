@@ -9,6 +9,7 @@ require 'phpmailer/src/PHPMailer.php';
 $mail = new PHPMailer(true);
 $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ua', 'phpmailer/language');
+$mail->IsHTML(true);
 
 $mail->setFrom('anton.kozhukhar@gmail.com', 'Anton Kozhukhar');
 $mail->addAddress('anton4k456@gmail.com');
@@ -27,7 +28,7 @@ if (trim(!empty($_POST['userText']))) {
 // $body .= '<p><strong>Пошта:</strong> ' . $_POST['userEmail'] . '</p>';
 // $body .= '<p><strong>Повідомлення</strong> ' . $_POST['userText'] . '</p>';
 
-$mail->Body = '<p><strong>Ім\'я:</strong> ' . $_POST['userName'] . '</p>';
+$mail->Body = $body;
 
 if (!$mail->send()) {
   $message = 'Error';
@@ -35,4 +36,7 @@ if (!$mail->send()) {
   $message = 'Ok';
 }
 
-$response = ['message' => $message];
+$response = $body;
+
+echo json_encode($response);
+?>

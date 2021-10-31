@@ -35,9 +35,11 @@ export default {
 <style lang='scss'>
 
 .directions {
+  border-top: 15px dotted #00dae3;
+
   font-size: 25px;
   font-weight: 300;
-  margin: 50px 0;
+  padding: 50px 0;
 
   &__title {
     font-size: 40px;

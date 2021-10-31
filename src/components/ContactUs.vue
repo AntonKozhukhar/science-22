@@ -119,24 +119,24 @@ export default {
       if (this.$v.$invalid) {
         this.$v.$touch()
       } else {
-        this.formSend()
+        const formData = {
+          userName: this.userName,
+          userEmail: this.userEmail,
+          userText: this.userText,
+        }
+        this.sendForm(formData)
       }
     },
-    async formSend() {
-      const formData = {
-        userName: this.userName,
-        userEmail: this.userEmail,
-        userText: this.userText,
-      }
-      let response = await fetch('sendmail.php', {
-        method: 'POST',
+    async sendForm(formData) {
+      let response = await fetch('./sendmail.php', {
+        method: 'Post',
         headers: {'Content-type': 'application/json'},
-        body: JSON.stringify(formData),
+        body: formData,
       })
-      console.log(response.body)
+      console.log('data', formData)
       if (response.ok) {
-        let result = await response.json()
-        console.log(result.message)
+        let result = await response
+        console.log('result', result)
         this.addSubmitMessage()
         this.clearForm()
       }

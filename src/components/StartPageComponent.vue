@@ -1,16 +1,15 @@
 <template>
   <section class='start'>
+    <div class='start__bg-wrapper'>
+      <img class='start__bg' src='../assets/img/main-bg.jpg' alt='bg'>
+      <div class='start__mouse'>
+        <span class='start__mouse-wheel'></span>
+      </div>
+    </div>
     <div class='container'>
-
-      <span class='logo _icon-atom'></span>
-
       <div class='start__text'>
         <h1 class='start__title'>{{ title }}</h1>
-        <h2 class='start__subtitle'>{{ subtitle1 }}</h2>
-        <h2 class='start__subtitle' id='test'>{{ subtitle2 }}</h2>
-      </div>
-      <div class='mouse'>
-        <span class='mouse__wheel'></span>
+        <h2 class='start__subtitle'>{{ subtitle }}</h2>
       </div>
     </div>
   </section>
@@ -20,88 +19,96 @@ export default {
   name: 'startPageComponent',
   props: {
     title: {},
-    subtitle1: {},
-    subtitle2: {},
+    subtitle: {},
   },
 }
 </script>
 <style lang='scss'>
-.logo {
-  background: rgba(0, 0, 0, 0.5);
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-self: flex-end;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 5px rgba(0, 0, 0, .5);
-  float: right;
-  margin-top: 10px;
-  &:before {
-    position: absolute;
-    font-size: 140px;
-    animation: rotateLogo 20s linear infinite;
-    font-weight: bold;
+//.logo {
+//  background: rgba(0, 0, 0, 0.5);
+//  width: 200px;
+//  height: 200px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  justify-self: flex-end;
+//  border-radius: 50%;
+//  box-shadow: 0 0 30px 5px rgba(0, 0, 0, .5);
+//  float: right;
+//  margin-top: 10px;
+//  &:before {
+//    position: absolute;
+//    font-size: 140px;
+//    animation: rotateLogo 20s linear infinite;
+//    font-weight: bold;
+//  }
+//  @media (max-width: 767px) {
+//    position: absolute;
+//    left: 50%;
+//    transform: translateX(-50%);
+//  }
+//}
+.start {
+  color: #000;
+  font-weight: 300;
+  padding-bottom: 50px;
+  &__bg-wrapper {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      transform: scale(-1, 1)
+    }
+
   }
-  @media (max-width: 767px) {
+  &__mouse {
+    border: 3px solid #fff;
+    border-radius: 16px;
+    height: 47px;
+    width: 30px;
     position: absolute;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-  }
-}
-.start {
-  background: url('../assets/img/main-bg.jpg') 50%/cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: #fff;
-  font-weight: 300;
-  &__text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    line-height: 200%;
-    @media (max-width: 767px) {
+    &-wheel {
+      position: absolute;
+      width: 3px;
+      height: 6px;
+      background: #fff;
+      border-radius: 3px;
       left: 50%;
-      transform: translate(-50%, -30%);
+      transform: translateX(-50%);
+      animation: wheel 1s linear infinite;
+    }
+  }
+  &__text {
+    line-height: 200%;
+    margin-top: 50px;
+    @media (max-width: 767px) {
       text-align: center;
-      width: 100%;
+    }
+    @media (max-width: 479px) {
+      margin-top: 30px;
     }
   }
   &__title {
     font-size: 60px;
-    padding: 0 0 50px 0;
+    padding: 0 0 25px 0;
+    @media (max-width: 479px) {
+      font-size: 50px;
+    }
   }
   &__subtitle {
-    font-size: 30px;
-    &:not(:last-child) {
-      margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 120%;
+    @media (max-width: 479px) {
+      font-size: 30px;
     }
   }
 }
-.mouse {
-  border: 3px solid #fff;
-  border-radius: 16px;
-  height: 47px;
-  width: 30px;
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  &__wheel {
-    position: absolute;
-    width: 3px;
-    height: 6px;
-    background: #fff;
-    border-radius: 3px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: wheel 1s linear infinite;
-  }
-}
+
 @keyframes wheel {
   0% {
     opacity: 0;
