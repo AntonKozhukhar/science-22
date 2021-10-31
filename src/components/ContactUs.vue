@@ -14,7 +14,7 @@
             </li>
           </ul>
         </div>
-        <form name='contact' class='contact__form form' @submit.prevent='onSubmit'>
+        <form name='contact' class='contact__form form' id='form' @submit.prevent='onSubmit'>
           <div class='form__input-wrapper'>
             <input
               class='form__input _input'
@@ -115,32 +115,6 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      if (this.$v.$invalid) {
-        this.$v.$touch()
-      } else {
-        const formData = {
-          userName: this.userName,
-          userEmail: this.userEmail,
-          userText: this.userText,
-        }
-        this.sendForm(formData)
-      }
-    },
-    async sendForm(formData) {
-      let response = await fetch('./sendmail.php', {
-        method: 'Post',
-        headers: {'Content-type': 'application/json'},
-        body: formData,
-      })
-      console.log('data', formData)
-      if (response.ok) {
-        let result = await response
-        console.log('result', result)
-        this.addSubmitMessage()
-        this.clearForm()
-      }
-    },
     addSubmitMessage() {
       const submitted = document.querySelector('.form__submitted')
       submitted.style.opacity = '1'
@@ -151,6 +125,35 @@ export default {
       this.userName = ''
       this.userEmail = ''
       this.userText = ''
+    },
+    onSubmit() {
+      if (this.$v.$invalid) {
+        this.$v.$touch()
+      } else {
+        let formData = {
+          name: this.userName,
+          email: this.userEmail,
+          message: this.userText,
+        }
+        this.sendForm(formData)
+      }
+    },
+    async sendForm(formData) {
+      const form = document.getElementById('form')
+      form.classList.add('_sending')
+      let response = await fetch('https://formsubmit.co/ajax/anton.kozhukhar@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      if (response.ok) {
+        form.classList.remove('_sending')
+        this.addSubmitMessage()
+        this.clearForm()
+      }
     },
   },
 }
@@ -227,6 +230,22 @@ export default {
   flex-direction: column;
   flex: 0 1 40%;
   position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(51, 51, 51, .7) url('../assets/img/loading.gif') center / 50px no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+  }
+  &._sending:after {
+    opacity: 1;
+    visibility: visible;
+  }
   @media (max-width: 767px) {
     width: 80%;
   }
@@ -248,6 +267,9 @@ export default {
     border: 2px solid #14274a;
     font-size: 25px;
     width: 100%;
+    &:focus + label {
+
+    }
   }
   &__error {
     font-size: 16px;
