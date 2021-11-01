@@ -52,6 +52,9 @@ export default {
   color: #000;
   font-weight: 300;
   padding-bottom: 50px;
+  @media (max-width: 767px) {
+    padding-bottom: 30px;
+  }
   &__bg-wrapper {
     width: 100%;
     height: 70vh;

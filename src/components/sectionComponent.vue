@@ -44,8 +44,11 @@ export default {
 <style scoped lang='scss'>
 
 .section {
-  border-top: 15px dotted #00dae3;
+  border-top: 15px dotted $mainColor;
   padding: 50px 0;
+  @media (max-width: 767px) {
+    padding: 30px 0;
+  }
   &__row {
     display: flex;
     margin: 0 -20px;

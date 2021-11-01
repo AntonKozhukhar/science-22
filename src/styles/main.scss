@@ -1,15 +1,8 @@
-$fontFamily: Century Gothic;
 
-$minWidth: 320px;
-$maxWidth: 1500;
-$maxWidthContainer: 1220;
-$md1: $maxWidthContainer + 12;
-$md2: 992;
-$md3: 767;
-$md4: 480;
 
 @import 'normalize';
 @import 'iconsFont.css';
+
 
 body {
     color: #000;

@@ -7,7 +7,7 @@
             <h3 class='human__title human__title-main'>{{ humanList[0].title }}</h3>
             <p class='human__text-main'>{{ humanList[0].text }}</p>
             <div class='human__img'>
-              <img src='../assets/img/row-1-img.jpg' alt='humans'>
+              <img src='../../assets/img/row-1-img.jpg' alt='humans'>
             </div>
           </div>
         </div>

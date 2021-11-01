@@ -11,7 +11,7 @@
               <li class='technic__text technic__text-main'>{{ technicList[0].subList.text3 }}</li>
             </ul>
             <div class='technic__img'>
-              <img src='../assets/img/row-2-img.jpg' alt='technics'>
+              <img src='../../assets/img/row-2-img.jpg' alt='technics'>
             </div>
           </div>
         </div>

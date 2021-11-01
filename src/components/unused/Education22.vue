@@ -11,7 +11,7 @@
               <li class='education__text education__text-main'>{{ educationList[0].subList.text3 }}</li>
             </ul>
             <div class='education__img'>
-              <img src='../assets/img/row-3-img.jpg' alt='educations'>
+              <img src='../../assets/img/row-3-img.jpg' alt='educations'>
             </div>
           </div>
         </div>

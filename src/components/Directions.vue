@@ -35,12 +35,13 @@ export default {
 <style lang='scss'>
 
 .directions {
-  border-top: 15px dotted #00dae3;
-
+  border-top: 15px dotted $mainColor;
   font-size: 25px;
   font-weight: 300;
   padding: 50px 0;
-
+  @media (max-width: 767px) {
+    padding: 30px 0;
+  }
   &__title {
     font-size: 40px;
     margin-bottom: 60px;
