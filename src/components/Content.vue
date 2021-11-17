@@ -1,7 +1,7 @@
 <template>
   <main class='content'>
     <directions/>
-    <section-component v-for='(section,key) in sectionsList'
+    <section-component v-for='(section,key) of getSections'
                        :key='key'
                        :keyProp='key'
                        :section='section'/>
@@ -15,6 +15,7 @@ import ContactUs from './ContactUs'
 import row1Img from '../assets/img/row-1-img.jpg'
 import row2Img from '../assets/img/row-2-img.jpg'
 import row3Img from '../assets/img/row-3-img.jpg'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'contentComponent',
@@ -120,5 +121,6 @@ export default {
       },
     }
   },
+  computed: mapGetters(['getSections'])
 }
 </script>

@@ -2,25 +2,28 @@
   <section class='start'>
     <div class='start__bg-wrapper'>
       <img class='start__bg' src='../assets/img/main-bg.jpg' alt='bg'>
-      <div class='start__mouse'>
-        <span class='start__mouse-wheel'></span>
-      </div>
+<!--      <div class='start__mouse'>-->
+<!--        <span class='start__mouse-wheel'></span>-->
+<!--      </div>-->
+    </div>
+    <div class='start__language'>
+      <span class='start__language-ua'>UA</span>
+      <span class='start__language-eng'>ENG</span>
     </div>
     <div class='container'>
       <div class='start__text'>
-        <h1 class='start__title'>{{ title }}</h1>
-        <h2 class='start__subtitle'>{{ subtitle }}</h2>
+        <h1 class='start__title'>{{ getStartPage.title }}</h1>
+        <h2 class='start__subtitle'>{{ getStartPage.subtitle }}</h2>
       </div>
     </div>
   </section>
 </template>
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: 'startPageComponent',
-  props: {
-    title: {},
-    subtitle: {},
-  },
+  computed: mapGetters(['getStartPage'])
 }
 </script>
 <style lang='scss'>
@@ -64,26 +67,57 @@ export default {
       height: 100%;
       transform: scale(-1, 1)
     }
-
   }
-  &__mouse {
-    border: 3px solid #fff;
-    border-radius: 16px;
-    height: 47px;
-    width: 30px;
+  //&__mouse {
+  //  border: 3px solid #fff;
+  //  border-radius: 16px;
+  //  height: 47px;
+  //  width: 30px;
+  //  position: absolute;
+  //  bottom: 10px;
+  //  left: 50%;
+  //  transform: translateX(-50%);
+  //  &-wheel {
+  //    position: absolute;
+  //    width: 3px;
+  //    height: 6px;
+  //    background: #fff;
+  //    border-radius: 3px;
+  //    left: 50%;
+  //    transform: translateX(-50%);
+  //    animation: wheel 1s linear infinite;
+  //  }
+  //}
+  &__language {
+    color: #fff;
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    &-wheel {
+    top: 50px;
+    right: 50px;
+    @media (max-width: 767px) {
+      top: 25px;
+      right: 25px;
+    }
+    & span {
+      cursor: pointer;
+    }
+    &:before {
+      content: '';
       position: absolute;
-      width: 3px;
-      height: 6px;
+      top: -1px;
+      left: 34px;
+      width: 2px;
+      height: 20px;
       background: #fff;
-      border-radius: 3px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: wheel 1s linear infinite;
+      transform: rotate(20deg);
+    }
+    &-ua {
+      margin-right: 20px;
+    }
+    @media (min-width: 992px) {
+      & span:hover {
+        color: $mainColor;
+        transition: .3s;
+      }
     }
   }
   &__text {

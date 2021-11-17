@@ -8,11 +8,8 @@
              :class="{ 'section__col-main': col.id===1 }">
           <div class='section__item' :class="{ [col.iconClass]: col.id>1, 'section__item-main': col.id===1 }">
             <h3 class='section__title' :class="{ 'section__title-main': col.id===1 }">{{ col.title }}</h3>
-            <p class='section__text-main'
-               v-if="keyProp==='human22' && col.id===1"
-               :id='`section-${col.id}-text-main`'
-            >{{ col.textList[0] }}</p>
-            <ul class='section__list' v-else>
+            <p class='section__text-main' :id='`section-${col.id}-text-main`'>{{ col.mainText }}</p>
+            <ul class='section__list' >
               <li class='section__text'
                   :id='`section-${col.id}-text-${j+1}`'
                   v-for='(li,j) of col.textList'
