@@ -5,17 +5,19 @@
         <div class='section__col'
              v-for='(col,i) of section'
              :key='i'
-             :class="{ 'section__col-main': col.id===1 }">
+             :class="{ 'section__col-main': col.id===1 }"
+             data-aos='zoom-in' data-aos-duration='700'>
           <div class='section__item' :class="{ [col.iconClass]: col.id>1, 'section__item-main': col.id===1 }">
             <h3 class='section__title' :class="{ 'section__title-main': col.id===1 }">{{ col.title }}</h3>
             <p class='section__text-main' :id='`section-${col.id}-text-main`'>{{ col.mainText }}</p>
-            <ul class='section__list' >
+            <ul class='section__list'>
               <li class='section__text'
                   :id='`section-${col.id}-text-${j+1}`'
                   v-for='(li,j) of col.textList'
                   :key='j'
                   :class="{'section__text-main': col.id===1 }"
-              >{{ li }}</li>
+              >{{ li }}
+              </li>
             </ul>
             <div class='section__img' v-if='col.id===1'>
               <img :src=col.img alt='img'>
@@ -29,7 +31,7 @@
 
 <script>
 export default {
-  name: 'section-component',
+  name: 'section',
   props: {
     section: {},
     keyProp: {},

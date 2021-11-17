@@ -11,8 +11,9 @@
                 invalid: $v.userName.$dirty && !$v.userName.required,
                 valid: $v.userName.$dirty && $v.userName.required,
               }'/>
-      <label :class='{ active: userName }' for='name'>Ім'я</label>
+      <label :class='{ active: userName }' for='name'>{{ getForm.name }}</label>
       <span v-if='$v.userName.$dirty && !$v.userName.required' class='form__error'>Введіть ім'я</span>
+<!--      <span v-if='$v.userName.$dirty && !$v.userName.required' class='form__error'>Enter name</span>-->
     </div>
     <div class='form__input-wrapper'>
       <input class='form__input _input'
@@ -28,9 +29,11 @@
                         ($v.userEmail.$dirty && !$v.userEmail.required) ||
                         ($v.userEmail.$dirty && $v.userEmail.email),
                    }'/>
-      <label :class='{ active: userEmail }' for='email'>Пошта</label>
+      <label :class='{ active: userEmail }' for='email'>{{ getForm.email }}</label>
       <span v-if='$v.userEmail.$dirty && !$v.userEmail.required' class='form__error'>Введіть пошту</span>
-      <span v-else-if='$v.userEmail.$dirty && !$v.userEmail.email' class='form__error'>Пошта не коректна</span>
+<!--      <span v-if='$v.userEmail.$dirty && !$v.userEmail.required' class='form__error'>Enter email</span>-->
+      <span v-else-if='$v.userEmail.$dirty && !$v.userEmail.email' class='form__error'>Пошта некоректна</span>
+<!--      <span v-else-if='$v.userEmail.$dirty && !$v.userEmail.email' class='form__error'>Mail is incorrect</span>-->
     </div>
     <div class='form__input-wrapper'>
             <textarea class='form__textarea _input'
@@ -42,8 +45,9 @@
                         valid: $v.userText.$dirty && $v.userText.required,
                       }'>
             </textarea>
-      <label for='textarea' :class='{ active: userText }'>Повідомлення</label>
+      <label for='textarea' :class='{ active: userText }'>{{ getForm.message }}</label>
       <span v-if='$v.userText.$dirty && !$v.userText.required' class='form__error'>Введіть повідомлення</span>
+<!--      <span v-if='$v.userText.$dirty && !$v.userText.required' class='form__error'>Enter message</span>-->
     </div>
     <span class='form__submitted'>Відправлено</span>
     <button class='form__button' type='submit'>Відправити</button>
@@ -51,6 +55,7 @@
 </template>
 <script>
 import {email, required} from 'vuelidate/lib/validators'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'form-component',
@@ -108,6 +113,7 @@ export default {
       }
     },
   },
+  computed: mapGetters(['getForm'])
 }
 </script>
 <style scoped lang='scss'>

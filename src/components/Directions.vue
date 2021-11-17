@@ -1,25 +1,27 @@
 <template>
   <section class='directions'>
-
     <div class='container'>
+      <h3 class='directions__title'>{{ getDirections.title }}</h3>
+      <div class='directions__col-wrapper'>
 
-      <h3 class='directions__title'>{{ title }}</h3>
-        <div class='directions__col-wrapper'>
-          <div class='directions__col' v-scroll-to="{el: '#human22'}">
-            <div class='directions__col-item _icon-human'>{{ human }}</div>
-          </div>
-          <div class='directions__col' v-scroll-to="{el: '#technic22'}">
-            <div class='directions__col-item _icon-robot'>{{ technique }}</div>
-          </div>
-          <div class='directions__col' v-scroll-to="{el: '#education22'}">
-            <div class='directions__col-item _icon-hat'>{{ education }}</div>
-          </div>
+        <div class='directions__col' v-scroll-to="{el: '#human22'}" data-aos="fade-right" data-aos-duration='700'>
+            <div class='directions__col-item _icon-human' >{{ getDirections.col1 }}</div>
         </div>
+
+        <div class='directions__col' v-scroll-to="{el: '#technic22'}" data-aos="fade-up" data-aos-duration='700'>
+          <div class='directions__col-item _icon-robot'>{{ getDirections.col2 }}</div>
+        </div>
+        <div class='directions__col' v-scroll-to="{el: '#education22'}" data-aos="fade-left" data-aos-duration='700'>
+          <div class='directions__col-item _icon-hat'>{{ getDirections.col3 }}</div>
+        </div>
+      </div>
     </div>
 
   </section>
 </template>
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: 'directions',
   data() {
@@ -30,6 +32,8 @@ export default {
       education: 'ОСВІТА 22',
     }
   },
+
+  computed: mapGetters(['getDirections']),
 }
 </script>
 <style lang='scss'>

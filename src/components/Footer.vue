@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: 'footerComponent',
+  name: 'footer',
   data() {
     return {
       contacts: {

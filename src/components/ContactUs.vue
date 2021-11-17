@@ -3,23 +3,23 @@
   <section class='contact' id='contact'>
     <div class='container'>
       <div class='contact__top'>
-        <div class='contact__text'>
-          <h3 class='contact__title'>{{ educationList[0].title }}</h3>
-          <h4 class='contact__title'>{{ educationList[0].text1 }}</h4>
-          <h4 class='contact__title'>{{ educationList[0].text2 }}</h4>
+        <div class='contact__text'  data-aos='fade-right' data-aos-duration='700'>
+          <h3 class='contact__title'>{{ getContactUs[0].title }}</h3>
+          <h4 class='contact__title'>{{ getContactUs[0].text1 }}</h4>
+          <h4 class='contact__title'>{{ getContactUs[0].text2 }}</h4>
           <ul class='contact__vacancies'>
             <li class='contact__vacancies-item'
-                v-for='item of educationList[0].vacancies'
+                v-for='item of getContactUs[0].vacancies'
                 :key='item'>
               {{ item }}
             </li>
           </ul>
         </div>
-        <form-component/>
+        <Form data-aos='fade-left' data-aos-duration='700'/>
       </div>
-      <ul class='contact__list'>
+      <ul class='contact__list' data-aos='fade-right' data-aos-duration='700'>
         <li class='contact__item'
-            v-for='item of educationList[0].subList'
+            v-for='item of getContactUs[0].subList'
             :key='item'>
           {{ item }}
         </li>
@@ -34,34 +34,13 @@
 </template>
 
 <script>
-import FormComponent from './FormComponent'
+import Form from './Form'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'ContactUs',
-  components: {FormComponent},
-  data() {
-    return {
-      educationList: [
-        {
-          id: 1,
-          title: 'Хочеш з нами?',
-          text1: 'Маєш цікаві ідеї?',
-          text2: 'Давай їх реалізуємо разом!',
-          vacancies: {
-            title: 'Вакансії за напрямками:',
-            text1: 'комп’ютерний дизайн та графіка',
-            text2: 'DNA laboratory - керівник напрямку',
-          },
-          subList: {
-            text1: 'Ми безпосередньо беремо участь у створенні майбутнього.',
-            text2: 'Гайда з нами!',
-            text3: 'Шукаємо (запрошуємо) професіоналів та тих, хто бажає ними стати в найближчому майбутньому',
-            text4: 'Реалізуємо проекти НАУКА 22 разом!',
-          },
-        },
-      ],
-    }
-  },
+  components: {Form},
+  computed: mapGetters(['getContactUs'])
 }
 </script>
 

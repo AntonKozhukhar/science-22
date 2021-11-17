@@ -1,31 +1,24 @@
 <template>
 
   <div class='wrapper'>
-    <startPage :title='title' :subtitle='subtitle'/>
+    <StartPage/>
 
-    <contentComponent/>
+    <Content/>
 
-    <footerComponent/>
+    <Footer/>
   </div>
 
 </template>
 
 <script>
 
-import StartPage from './components/StartPageComponent'
-import FooterComponent from './components/FooterComponent'
-import ContentComponent from './components/ContentComponent'
+import StartPage from './components/StartPage'
+import Footer from './components/Footer'
+import Content from './components/Content.vue'
 
 export default {
-
   name: 'App',
-  components: {ContentComponent, FooterComponent, StartPage},
-  data() {
-    return {
-      title: 'НАУКА 22',
-      subtitle: 'МИ ВІРИМО В НАУКУ. БУДУЄМО МАЙБУТНЄ.',
-    }
-  },
+  components: {Content, Footer, StartPage},
 }
 
 </script>
