@@ -3,16 +3,27 @@
     <div class='container'>
       <h3 class='directions__title'>{{ getDirections.title }}</h3>
       <div class='directions__col-wrapper'>
-
-        <div class='directions__col' v-scroll-to="{el: '#human22'}" data-aos="fade-right" data-aos-duration='700'>
-            <div class='directions__col-item _icon-human' >{{ getDirections.col1 }}</div>
+        <div class='directions__col' v-scroll-to="{el: '#human22'}" data-aos='fade-right' data-aos-duration='700'>
+          <div class='directions__col-item'>
+            {{ getDirections.col1.title }}
+            <div class='directions__icon'>
+              <img :src=getDirections.col1.bgImage alt='icon'>
+            </div>
+          </div>
         </div>
-
-        <div class='directions__col' v-scroll-to="{el: '#technic22'}" data-aos="fade-up" data-aos-duration='700'>
-          <div class='directions__col-item _icon-robot'>{{ getDirections.col2 }}</div>
+        <div class='directions__col' v-scroll-to="{el: '#technic22'}" data-aos='fade-up' data-aos-duration='700'>
+          <div class='directions__col-item'>{{ getDirections.col2.title }}
+            <div class='directions__icon'>
+              <img :src=getDirections.col2.bgImage alt='icon'>
+            </div>
+          </div>
         </div>
-        <div class='directions__col' v-scroll-to="{el: '#education22'}" data-aos="fade-left" data-aos-duration='700'>
-          <div class='directions__col-item _icon-hat'>{{ getDirections.col3 }}</div>
+        <div class='directions__col' v-scroll-to="{el: '#education22'}" data-aos='fade-left' data-aos-duration='700'>
+          <div class='directions__col-item'>{{ getDirections.col3.title }}
+            <div class='directions__icon'>
+              <img :src=getDirections.col3.bgImage alt='icon'>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,35 +102,22 @@ export default {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: #fff;
     @media (min-width: 992px) {
       &:hover {
-        background: rgba(0, 218, 227, .1);
-        &:before {
-          animation: rotate 1.5s forwards;
-        }
+        animation: rotate 1.5s forwards;
       }
     }
-    &:before {
-      font-size: 100px;
-      order: 2;
-      margin-top: 40px;
+  }
+  &__icon {
+    width: 140px;
+    height: auto;
+    padding: 20px 0;
+    img {
+      width: 100%;
+      height: 100%;
     }
-  }
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 60%);
-    border-radius: 20px;
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(0, 0, 0, 0%);
-    border-radius: 20px;
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0%);
-    border-radius: 20px;
   }
 }
 @keyframes rotate {

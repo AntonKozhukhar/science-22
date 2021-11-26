@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 import row1Img from '../assets/img/row-1-img.jpg'
 import row2Img from '../assets/img/row-2-img.jpg'
 import row3Img from '../assets/img/row-3-img.jpg'
+import human from '../assets/img/human.png'
+import hat from '../assets/img/hat.png'
+import robot from '../assets/img/robot.png'
 
 Vue.use(Vuex)
 
@@ -15,9 +18,18 @@ export default new Vuex.Store({
       },
       directions: {
         title: 'Пріоритетні напрямки діяльності НАУКА 22:',
-        col1: 'ЛЮДИНА 22',
-        col2: 'ТЕХНІКА 22',
-        col3: 'ОСВІТА 22',
+        col1: {
+          title: 'ЛЮДИНА 22',
+          bgImage: human,
+        },
+        col2: {
+          title: 'ТЕХНІКА 22',
+          bgImage: robot,
+        },
+        col3: {
+          title: 'ОСВІТА 22',
+          bgImage: hat,
+        },
       },
       sectionsList: {
         human22: {
@@ -36,7 +48,7 @@ export default new Vuex.Store({
               'Агротуризм',
               'Свобода від залежностей',
             ],
-            iconClass: '_icon-human',
+            bgImage: human,
           },
           col3: {
             id: 3,
@@ -46,7 +58,7 @@ export default new Vuex.Store({
               'Медсервіс',
               'IT-технології для моніторингу та профілактики',
             ],
-            iconClass: '_icon-human',
+            bgImage: human,
           },
       
         },
@@ -65,7 +77,7 @@ export default new Vuex.Store({
               'Дрони',
               'Роботи',
             ],
-            iconClass: '_icon-robot',
+            bgImage: robot,
           },
           col3: {
             id: 3,
@@ -74,7 +86,7 @@ export default new Vuex.Store({
               'ПЗ для дронів та роботів',
               'ПЗ для смартфонів',
             ],
-            iconClass: '_icon-robot',
+            bgImage: robot,
           },
         },
         education22: {
@@ -92,7 +104,7 @@ export default new Vuex.Store({
               'Професійні конференції',
               'Online курси',
             ],
-            iconClass: '_icon-hat',
+            bgImage: hat,
           },
           col3: {
             id: 3,
@@ -102,7 +114,7 @@ export default new Vuex.Store({
               'Вебінари',
               'Майстер-класи',
             ],
-            iconClass: '_icon-hat',
+            bgImage: hat,
           },
         },
       },

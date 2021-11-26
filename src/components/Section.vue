@@ -7,7 +7,10 @@
              :key='i'
              :class="{ 'section__col-main': col.id===1 }"
              data-aos='zoom-in' data-aos-duration='700'>
-          <div class='section__item' :class="{ [col.iconClass]: col.id>1, 'section__item-main': col.id===1 }">
+          <div class='section__item' :class="{ 'section__item-main': col.id===1 }">
+            <div class='section__icon' v-if='col.id>1'>
+              <img :src=col.bgImage alt='icon'>
+            </div>
             <h3 class='section__title' :class="{ 'section__title-main': col.id===1 }">{{ col.title }}</h3>
             <p class='section__text-main' :id='`section-${col.id}-text-main`'>{{ col.mainText }}</p>
             <ul class='section__list'>
@@ -36,7 +39,6 @@ export default {
     section: {},
     keyProp: {},
   },
-
 }
 </script>
 
@@ -156,6 +158,19 @@ export default {
       &:first-child:before {
         border: none;
       }
+    }
+  }
+  &__icon {
+    position: absolute;
+    opacity: .1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
