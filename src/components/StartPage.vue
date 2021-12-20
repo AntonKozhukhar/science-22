@@ -1,11 +1,5 @@
 <template>
   <section class='start'>
-    <div class='start__bg-wrapper'>
-      <img class='start__bg' src='../assets/img/main-bg.jpg' alt='bg'>
-<!--      <div class='start__mouse'>-->
-<!--        <span class='start__mouse-wheel'></span>-->
-<!--      </div>-->
-    </div>
     <div class='start__language'>
       <span class='start__language-ua'>UA</span>
       <span class='start__language-eng'>ENG</span>
@@ -15,6 +9,9 @@
         <h1 class='start__title'>{{ getStartPage.title }}</h1>
         <h2 class='start__subtitle'>{{ getStartPage.subtitle }}</h2>
       </div>
+    </div>
+    <div class='start__bg-wrapper'>
+      <img class='start__bg' src='../assets/img/main-bg.jpg' alt='bg'>
     </div>
   </section>
 </template>
@@ -60,7 +57,7 @@ export default {
   }
   &__bg-wrapper {
     width: 100%;
-    height: 70vh;
+    height: 72vh;
     position: relative;
     img {
       width: 100%;
@@ -89,7 +86,6 @@ export default {
   //  }
   //}
   &__language {
-    color: #fff;
     position: absolute;
     top: 50px;
     right: 50px;
@@ -97,8 +93,13 @@ export default {
       top: 25px;
       right: 25px;
     }
+    @media (max-width: 492px) {
+      top: 10px;
+      right: 10px;
+    }
     & span {
       cursor: pointer;
+      transition: .2s;
     }
     &:before {
       content: '';
@@ -107,7 +108,7 @@ export default {
       left: 34px;
       width: 2px;
       height: 20px;
-      background: #fff;
+      background: #000;
       transform: rotate(20deg);
     }
     &-ua {
@@ -115,33 +116,30 @@ export default {
     }
     @media (min-width: 992px) {
       & span:hover {
-        color: $mainColor;
-        transition: .3s;
+        transition: .2s;
+        color: rgb(118, 117, 117);
       }
     }
   }
   &__text {
-    line-height: 200%;
-    margin-top: 50px;
-    @media (max-width: 767px) {
-      text-align: center;
-    }
-    @media (max-width: 479px) {
-      margin-top: 30px;
-    }
+    text-align: center;
+    height: 28vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   &__title {
     font-size: 60px;
-    padding: 0 0 25px 0;
     @media (max-width: 479px) {
       font-size: 50px;
     }
   }
   &__subtitle {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 120%;
     @media (max-width: 479px) {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
 }

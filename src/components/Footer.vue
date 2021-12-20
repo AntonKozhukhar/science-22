@@ -35,7 +35,7 @@ export default {
 </script>
 <style lang='scss'>
 .footer {
-  background: #24a0a5;
+  background: rgb(184, 183, 183);
   color: #fff;
   padding: 20px 0;
   position: relative;
@@ -89,7 +89,7 @@ export default {
     &__item {
       @media (min-width: 992px) {
         &:hover {
-          color: #04575a;
+          color: rgb(118, 117, 117);
         }
       }
     }

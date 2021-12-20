@@ -28,6 +28,8 @@
            alt='img-scroll'
            class='scroll'
            id='scroll-bottom'
+           data-aos='fade-left'
+           data-aos-duration='700'
            v-scroll-to="{ el: '.start' }"/>
     </div>
   </section>
@@ -46,7 +48,6 @@ export default {
 
 <style scoped lang='scss'>
 .contact {
-  border-top: 15px dotted $mainColor;
   padding: 50px 0;
   font-size: 25px;
   position: relative;
@@ -120,7 +121,6 @@ export default {
   right: 25px;
   position: relative;
   float: right;
-  transform: rotate(180deg);
   cursor: pointer;
   @media (max-width: 767px) {
     width: 40px;

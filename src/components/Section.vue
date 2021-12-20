@@ -45,10 +45,24 @@ export default {
 <style scoped lang='scss'>
 
 .section {
-  border-top: 15px dotted $mainColor;
-  padding: 50px 0;
+  padding-top: 50px;
   @media (max-width: 767px) {
     padding: 30px 0;
+  }
+  &:nth-child(2) {
+    .section__item:not(.section__item-main) {
+      height: 235px;
+    }
+  }
+  &:nth-child(3) {
+    .section__item:not(.section__item-main) {
+      height: 170px;
+    }
+  }
+  &:nth-child(4) {
+    .section__item:not(.section__item-main) {
+      height: 175px;
+    }
   }
   &__row {
     display: flex;
@@ -117,8 +131,7 @@ export default {
     }
     @media (min-width: 992px) {
       &:hover {
-        transform: scale(1.1);
-        background: rgba(0, 218, 227, .1);
+        background: $mainColor;
         cursor: pointer;
       }
     }

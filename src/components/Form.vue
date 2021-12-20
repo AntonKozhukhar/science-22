@@ -196,26 +196,17 @@ export default {
     width: 250px;
     font-size: 25px;
     color: #fff;
-    background: $mainColor;
+    background: rgb(184, 183, 183);
     border-radius: 15px;
-    transition: 0.3s;
+    transition: .3s;
     font-weight: bold;
-    box-shadow: 4px 4px 0 0 #04a6ad;
     align-self: flex-end;
-    position: relative;
-    top: 0;
-    left: 0;
-    &:active {
-      top: 2px;
-      left: 2px;
-      box-shadow: 2px 2px 0 0 #04b9c1;
-    }
     @media (max-width: 992px) {
       width: 100%;
     }
     @media (min-width: 767px) {
       &:hover {
-        background: #04b9c1;
+        background: rgb(168, 168, 168);
       }
     }
   }

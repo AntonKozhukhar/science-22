@@ -50,10 +50,8 @@ export default {
 <style lang='scss'>
 
 .directions {
-  border-top: 15px dotted $mainColor;
   font-size: 25px;
   font-weight: 300;
-  padding: 50px 0;
   @media (max-width: 767px) {
     padding: 30px 0;
   }
@@ -98,7 +96,7 @@ export default {
     border-radius: 30px;
     padding-top: 20px;
     box-shadow: 0 0 20px 5px rgb(0, 0, 0, .25);
-    transition: .5s;
+    transition: .3s;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -106,7 +104,7 @@ export default {
     background: #fff;
     @media (min-width: 992px) {
       &:hover {
-        animation: rotate 1.5s forwards;
+        background: $mainColor;
       }
     }
   }
